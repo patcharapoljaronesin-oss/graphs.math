@@ -71,7 +71,7 @@ def setup(xmin,xmax,ymin,ymax,tr):
 
 fig = setup(xmax*-1,xmax,f(xmax)*-1,f(xmax),1)
 
-if eq != '':
+if eq != '' or xIn != '':
     with open("[Hatsune Miku (Text To Speech)]Here!......raphs.mp3", "rb") as f:
         audio = base64.b64encode(f.read()).decode()
 
