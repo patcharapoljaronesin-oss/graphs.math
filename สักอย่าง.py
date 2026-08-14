@@ -46,23 +46,20 @@ def setup(xmin,xmax,ymin,ymax,tr):
 
     xtick = np.arange(xmin,xmax+1, tr)
     ytick = np.arange(ymin,ymax+1, tr)
-    ax.set_xticks(xtick[xtick != 0])
-    ax.set_yticks(ytick[ytick != 0])
-    ax.set_xticks(np.arange(xmin,xmax+1), minor=True)
-    ax.set_yticks(np.arange(ymin,ymax+1), minor=True)
+    
 
     ax.grid(True)
 
     for i in range(0,len(xIn)):
         #print(i)
         if float(xIn[i]) < 0:
-             xtext = float(xIn[i]) - 3
-             ytext = f(float(xIn[i])) - 3
+             xtext = float(xIn[i]) - (xmin * 1.2)
+             ytext = f(float(xIn[i])) - (ymin * 1.2)
         elif float(xIn[i]) == 0: 
-             ytext = f(float(xIn[i])) - 3
+             ytext = f(float(xIn[i])) - (ymin * 1.2)
         else: 
-             xtext = float(xIn[i]) + 3
-             ytext = f(float(xIn[i])) - 3
+             xtext = float(xIn[i]) + (xmax * 1.2)
+             ytext = f(float(xIn[i])) - (ymin * 1.2)
         ax.annotate(f"({xIn[i]},{f(int(xIn[i]))})", xy=(float(xIn[i]),f(float(xIn[i]))), 
                     xytext=(xtext, ytext), 
                     arrowprops=dict(facecolor='black',))
